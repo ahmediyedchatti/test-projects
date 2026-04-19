@@ -32,9 +32,9 @@ Replaced the plain default layout with a **full-screen gradient** background goi
 
 **Implemented todos:**
 
-- ✅ `renders heading, email input, and send reset link button` — checks that the `"Forgot Password"` heading, email input, and submit button are all present when the component loads.
-- ✅ `disables submit until email is provided` — verifies the button starts disabled and becomes enabled only after an email is typed.
-- ✅ `shows loading state and calls onRequestSent after submit` — types an email, clicks submit, verifies the button switches to `"Sending..."` and is disabled, then confirms `onRequestSent` was called exactly once after the async delay.
+-  `renders heading, email input, and send reset link button` — checks that the `"Forgot Password"` heading, email input, and submit button are all present when the component loads.
+-  `disables submit until email is provided` — verifies the button starts disabled and becomes enabled only after an email is typed.
+-  `shows loading state and calls onRequestSent after submit` — types an email, clicks submit, verifies the button switches to `"Sending..."` and is disabled, then confirms `onRequestSent` was called exactly once after the async delay.
 
 ---
 
