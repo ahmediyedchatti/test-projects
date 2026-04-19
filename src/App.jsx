@@ -9,35 +9,46 @@ function App() {
   const [isResetSent, setIsResetSent] = useState(false)
 
   return (
-    <main style={{ maxWidth: 420, margin: '40px auto', padding: '0 16px' }}>
-      <h1>Testing Challenge</h1>
-      <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-        <button
-          type="button"
-          onClick={() => setChallenge('login')}
-          aria-pressed={challenge === 'login'}
-        >
-          Login screen
-        </button>
-        <button
-          type="button"
-          onClick={() => setChallenge('forgot-password')}
-          aria-pressed={challenge === 'forgot-password'}
-        >
-          Forgot password screen
-        </button>
-      </div>
-
+    <main className="app-main">
       {challenge === 'login' ? (
         !isLoggedIn ? (
-          <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+          <Login
+            onLoginSuccess={() => setIsLoggedIn(true)}
+            onForgotPassword={() => setChallenge('forgot-password')}
+          />
         ) : (
-          <p role="status">Welcome! You are now logged in.</p>
+          <div className="success-card">
+            <h1 className="success-title">Testing Challenge</h1>
+            <div className="glass-card">
+              <p role="status" className="success-message">
+                Welcome! You are now logged in.
+              </p>
+              <button className="back-button" onClick={() => setIsLoggedIn(false)}>
+                Back to Login
+              </button>
+            </div>
+          </div>
         )
       ) : !isResetSent ? (
-        <ForgotPassword onRequestSent={() => setIsResetSent(true)} />
+        <ForgotPassword
+          onRequestSent={() => setIsResetSent(true)}
+          onBackToLogin={() => setChallenge('login')}
+        />
       ) : (
-        <p role="status">Reset link sent. Please check your email.</p>
+        <div className="success-card">
+          <h1 className="success-title">Testing Challenge</h1>
+          <div className="glass-card">
+            <p role="status" className="success-message">
+              Reset link sent. Please check your email.
+            </p>
+            <button
+              className="back-button"
+              onClick={() => { setIsResetSent(false); setChallenge('login') }}
+            >
+              Back to Login
+            </button>
+          </div>
+        </div>
       )}
     </main>
   )
