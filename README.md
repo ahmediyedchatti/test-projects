@@ -43,3 +43,9 @@ Replaced the plain default layout with a **full-screen gradient** background goi
 Adding the **password toggle** introduced a small amount of extra code and an additional button to the DOM, but the UX benefit of reducing login frustration outweighs the complexity cost. The **glassmorphism design** required removing the original top navigation buttons from `App.jsx` — instead, navigation between screens is handled through the "Forgot password?" link inside the login card and the "Back to Login" button on each screen, which feels more natural for an auth flow. Finally, adding **labels to inputs** means slightly more HTML to maintain, but it improves accessibility for screen readers and allows the tests to use `getByLabelText` which is the recommended user-centric query over `getByPlaceholderText`.
 
 ---
+
+##  What I Would Improve With More Time
+
+-  Form validation — add real-time inline error messages for invalid email format or password too short, rather than waiting until submit
+-  Animation — add a subtle fade or slide transition when switching between the login and forgot password screens for a smoother feel
+-  Test coverage — cover edge cases like submitting with only spaces in the fields, or what happens if the user double clicks the submit button quickly
